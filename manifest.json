@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Price Tracker",
+  "version": "1.0.0",
+  "description": "Отслеживает цены на товары с Ozon, Wildberries и Яндекс Маркет",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting",
+    "http://localhost/*",
+    "http://127.0.0.1/*"
+  ],
+  "background": {
+    "service_worker": "js/background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.ozon.ru/*",
+        "https://www.wildberries.ru/*",
+        "https://market.yandex.ru/*"
+      ],
+      "js": ["js/content.js"]
+    }
+  ],
+  "icons": {
+    "48": "img/icon.png"
+  }
+}

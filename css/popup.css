@@ -1,0 +1,225 @@
+/* popup.css */
+
+/* Переменные цветов */
+:root {
+    --color-ozon-red: #f91155;
+    --color-ozon-blue: #005bff;
+    --color-green: #10c44c;
+    --color-lightred-1: #ff7079;
+    --color-lightred-2: #ffdadd;
+    --color-lightblue-1: #4e90ff;
+    --color-lightblue-2: #e6f0ff;
+    --color-lightorange-1: #ffb751;
+    --color-lightorange-2: #fff6da;
+    --gradient-colors: linear-gradient(-45deg, #ee7752, var(--color-ozon-red), var(--color-ozon-blue), #23d5ab);
+  }
+  
+  /* Общие стили */
+  body {
+    background: var(--gradient-colors);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    padding: 0;
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+    width: 500px;
+    height: 500px;
+    color: #333;
+  }
+
+  html {
+    width: 500px;
+    height: 500px;
+  }
+  
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  h1 {
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+    margin: 20px 0;
+  }
+  
+  /* Стили списка товаров */
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 15px;
+  }
+  
+  li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border: 2px solid #fff;
+    padding: 10px;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: transform 0.3s, background-color 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+  }
+  
+  li:hover {
+    transform: translateY(-5px);
+    background-color: rgba(255, 255, 255, 1);
+  }
+  
+  .product-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .product-image {
+    width: 70px;
+    height: 70px;
+    margin-right: 15px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  .product-details {
+    flex-grow: 1;
+  }
+  
+  a {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    color: #0073e6;
+    margin-bottom: 5px;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  .price {
+    font-size: 14px;
+    color: #28a745; /* Зелёный для текущей цены */
+  }
+  
+  .target-price {
+    font-size: 14px;
+    color: #dc3545; /* Красный для лимита цены */
+  }
+  
+  .marketplace-icon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 24px;
+    height: 24px;
+  }
+  
+  .remove {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff4d4d; /* Красный цвет */
+    color: #fff;
+    border: none;
+    font-size: 24px; /* Увеличенный размер */
+    width: 36px;
+    height: 36px;
+    line-height: 24px;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  
+  .remove:hover {
+    background: #e60000;
+    transform: scale(1.1);
+  }
+  
+  /* Кнопка настроек */
+  #settingsButton {
+    display: block;
+    margin: 0 auto 20px;
+    padding: 12px 25px;
+    background-color: var(--color-lightblue-1);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  #settingsButton:hover {
+    background-color: var(--color-lightblue-2);
+    transform: translateY(-3px);
+  }
+  
+  /* Стили для раздела настроек */
+  #settingsSection {
+    display: none;
+    padding: 15px;
+  }
+  
+  #settingsSection label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  #settingsSection input[type="text"],
+  #settingsSection input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-top: 5px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  #settingsSection input[type="text"]:focus,
+  #settingsSection input[type="number"]:focus {
+    border-color: #0073e6;
+  }
+  
+  #saveButton,
+  #connectTelegram,
+  #backButton {
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #0073e6;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: calc(100% - 20px);
+  }
+  
+  #saveButton:hover {
+    background-color: #005bb5;
+  }
+  
+  #connectTelegram {
+    background-color: #36a64f;
+  }
+  
+  #connectTelegram:hover {
+    background-color: #2e8b45;
+  }
+  
+  #backButton {
+    background-color: #6c757d;
+  }
+  
+  #backButton:hover {
+    background-color: #5a6268;
+  }
+  
+  
