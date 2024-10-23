@@ -64,9 +64,11 @@
         // Парсинг для Ozon
         if (window.location.host.includes('ozon.ru')) {
             marketplace = 'ozon';
-            title = document.querySelector('h1')?.innerText;
-            price = document.querySelector('span.s3m_27')?.innerText.replace(/\D/g, '');
-            imageUrl = document.querySelector('div[data-widget="webGallery"] img')?.src || '';
+            title = document.querySelector('[data-widget="webProductHeading"] h1')?.innerText ||
+                    document.evaluate('//div[@data-widget="webProductHeading"]//h1', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue?.innerText;
+            price = document.querySelector('div.m3s_27 span.s5m_27')?.innerText.replace(/\D/g, '') ||
+                    document.querySelector('div.alternate-price-class')?.innerText.replace(/\D/g, '');
+            imageUrl = document.querySelector('div.kq7_27 img')?.src || '';
         }
         // Парсинг для Wildberries
         else if (window.location.host.includes('wildberries.ru')) {
